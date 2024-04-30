@@ -2,11 +2,24 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
+import { Inter, Anton} from "next/font/google";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import Footer from '../components/Footer';
+
+const inter = Inter({
+	subsets: ['latin'],
+	variable: '--font-inter',
+  })
+const anton = Anton({
+	subsets: ['latin'],
+	weight: '400',
+	variable: '--font-anton',
+  })
+   
+
 
 export const metadata: Metadata = {
 	title: {
@@ -41,14 +54,12 @@ export default function RootLayout({
 				)}
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-					<div className="relative flex flex-col h-screen">
 						<Navbar />
-						<main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+						<main className=" mx-auto">
 							{children}
 						</main>
 						<Footer />
-						
-					</div>
+
 				</Providers>
 			</body>
 		</html>

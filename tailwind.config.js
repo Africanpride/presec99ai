@@ -1,6 +1,5 @@
 import { nextui } from "@nextui-org/theme";
-import daisyui from "daisyui"
-
+import daisyui from "daisyui";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,8 +9,22 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+        anton: ["var(--font-anton)"],
+      },
+      animation: {
+        "loop-scroll": "loop-scroll 50s linear infinite",
+      },
+      keyframes: {
+        "loop-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
+    },
   },
   darkMode: "class",
-  plugins: [nextui(), daisyui],
+  plugins: [nextui(), daisyui,],
 };
