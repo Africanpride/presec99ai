@@ -45,7 +45,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang='en' suppressHydrationWarning data-theme='cupcake'>
 			<head />
 			<body
 				className={clsx(
@@ -53,13 +53,12 @@ export default function RootLayout({
 					fontSans.variable
 				)}
 			>
-				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-						<Navbar />
-						<main className=" mx-auto">
-							{children}
-						</main>
-						<Footer />
-
+				<Providers
+					themeProps={{ attribute: "class", defaultTheme: "light" }}
+				>
+					<Navbar />
+					<main className=' mx-auto'>{children}</main>
+					<Footer />
 				</Providers>
 			</body>
 		</html>

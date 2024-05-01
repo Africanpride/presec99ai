@@ -1,11 +1,11 @@
 import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
-  NavbarBrand,
-  NavbarItem,
-  NavbarMenuItem,
+	Navbar as NextUINavbar,
+	NavbarContent,
+	NavbarMenu,
+	NavbarMenuToggle,
+	NavbarBrand,
+	NavbarItem,
+	NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
@@ -20,141 +20,107 @@ import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
 
-
 import { Logo } from "@/components/icons";
+import MainMenu from "./factory/MainMenu";
 
 export const Navbar = () => {
-
-  return (
-    <div className="navbar bg-blue-300">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h7"
-              />
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a>Homepage</a>
-            </li>
-            <li>
-              <a>Portfolio</a>
-            </li>
-            <li>
-              <a>About</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="navbar-center">
-	  <a className='btn btn-ghost text-xl text-white'>Odadee99AI &trade;</a>
-      </div>
-      <div className="navbar-end ">
-	  <div className="!dark:text-yellow-400"><ThemeSwitch /></div>
-      </div>
-    </div>
-    // <NextUINavbar maxWidth="xl" position="sticky">
-    // 	<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-    // 		<NavbarBrand as="li" className="gap-3 max-w-fit">
-    // 			<NextLink className="flex justify-start items-center gap-1" href="/">
-    // 				<Logo />
-    // 				<p className="font-bold text-inherit">ACME</p>
-    // 			</NextLink>
-    // 		</NavbarBrand>
-    // 		<ul className="hidden lg:flex gap-4 justify-start ml-2">
-    // 			{siteConfig.navItems.map((item) => (
-    // 				<NavbarItem key={item.href}>
-    // 					<NextLink
-    // 						className={clsx(
-    // 							linkStyles({ color: "foreground" }),
-    // 							"data-[active=true]:text-primary data-[active=true]:font-medium"
-    // 						)}
-    // 						color="foreground"
-    // 						href={item.href}
-    // 					>
-    // 						{item.label}
-    // 					</NextLink>
-    // 				</NavbarItem>
-    // 			))}
-    // 		</ul>
-    // 	</NavbarContent>
-
-    // 	<NavbarContent
-    // 		className="hidden sm:flex basis-1/5 sm:basis-full"
-    // 		justify="end"
-    // 	>
-    // 		<NavbarItem className="hidden sm:flex gap-2">
-    // 			<Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
-    // 				<TwitterIcon className="text-default-500" />
-    // 			</Link>
-    // 			<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
-    // 				<DiscordIcon className="text-default-500" />
-    // 			</Link>
-    // 			<Link isExternal href={siteConfig.links.github} aria-label="Github">
-    // 				<GithubIcon className="text-default-500" />
-    // 			</Link>
-    // 			<ThemeSwitch />
-    // 		</NavbarItem>
-    // 		<NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
-    // 		<NavbarItem className="hidden md:flex">
-    // 			<Button
-    //     isExternal
-    // 				as={Link}
-    // 				className="text-sm font-normal text-default-600 bg-default-100"
-    // 				href={siteConfig.links.sponsor}
-    // 				startContent={<HeartFilledIcon className="text-danger" />}
-    // 				variant="flat"
-    // 			>
-    // 				Sponsor
-    // 			</Button>
-    // 		</NavbarItem>
-    // 	</NavbarContent>
-
-    // 	<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-    // 		<Link isExternal href={siteConfig.links.github} aria-label="Github">
-    // 			<GithubIcon className="text-default-500" />
-    // 		</Link>
-    // 		<ThemeSwitch />
-    // 		<NavbarMenuToggle />
-    // 	</NavbarContent>
-
-    // 	<NavbarMenu>
-    // 		{searchInput}
-    // 		<div className="mx-4 mt-2 flex flex-col gap-2">
-    // 			{siteConfig.navMenuItems.map((item, index) => (
-    // 				<NavbarMenuItem key={`${item}-${index}`}>
-    // 					<Link
-    // 						color={
-    // 							index === 2
-    // 								? "primary"
-    // 								: index === siteConfig.navMenuItems.length - 1
-    // 								? "danger"
-    // 								: "foreground"
-    // 						}
-    // 						href="#"
-    // 						size="lg"
-    // 					>
-    // 						{item.label}
-    // 					</Link>
-    // 				</NavbarMenuItem>
-    // 			))}
-    // 		</div>
-    // 	</NavbarMenu>
-    // </NextUINavbar>
-  );
+	return (
+		<div className='navbar bg-primary'>
+			<div className='navbar-start'>
+				<div className='dropdown'>
+					<div
+						tabIndex={0}
+						role='button'
+						className='btn btn-ghost btn-circle'
+					>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							className='h-5 w-5'
+							fill='none'
+							viewBox='0 0 24 24'
+							stroke='currentColor'
+						>
+							<path
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								strokeWidth='2'
+								d='M4 6h16M4 12h16M4 18h7'
+							/>
+						</svg>
+					</div>
+					<MainMenu />
+				</div>
+				<div className='text-white'>Menu</div>
+			</div>
+			<div className='navbar-center'>
+				<a className='btn btn-ghost text-xl text-white'>
+					Odadee99AI &trade;
+				</a>
+			</div>
+			<div className='navbar-end '>
+				<div className='flex  items-center gap-x-2'>
+					<ul className='menu menu-horizontal bg-base-200 rounded-box hidden md:inline-flex'>
+						<li>
+							<a>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									className='h-5 w-5'
+									fill='none'
+									viewBox='0 0 24 24'
+									stroke='currentColor'
+								>
+									<path
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth='2'
+										d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
+									/>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									className='h-5 w-5'
+									fill='none'
+									viewBox='0 0 24 24'
+									stroke='currentColor'
+								>
+									<path
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth='2'
+										d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+									/>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									className='h-5 w-5'
+									fill='none'
+									viewBox='0 0 24 24'
+									stroke='currentColor'
+								>
+									<path
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										strokeWidth='2'
+										d='M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+									/>
+								</svg>
+							</a>
+						</li>
+					</ul>
+					<div className='pb-1'>Donate</div>
+					<div>
+						<ThemeSwitch className='text-primary' />
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };

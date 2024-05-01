@@ -15,14 +15,18 @@ const Hero: React.FC<Heroprops> = ({
   heroText = "Calling all Presec - Legon '99 alumni, come back to where it all began."
 }) => {
   return (
-    <div className="p-4 md:p-8">
-      <div className="hero-top h-[50dvh]">
-        <div className="hero-text leading-tight font-extrabold max-w-3xl ">
-          {heroText}
-        </div>
-        <Button text={buttonText} href={buttonHref} onClick={buttonOnClick} />
-      </div>
-    </div>
+		<div className='p-4 md:p-8'>
+			<div className='hero-top h-[50dvh]'>
+				<div className='hero-text leading-tight font-extrabold max-w-5xl '>
+					{heroText}
+				</div>
+				<Button
+					text={buttonText}
+					href={buttonHref}
+					onClick={buttonOnClick}
+				/>
+			</div>
+		</div>
   );
 };
 
